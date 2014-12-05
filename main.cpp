@@ -11,14 +11,14 @@ int main (int argc, char* argv[]){
 
 	cout << "Finding LCSS in "<< argv[1] << endl;
 	string STRING;
-	ifstream readmyfile;
-	readmyfile.open(argv[1]);
+	ifstream infile;
+	infile.open(argv[1]);
 
-	while(!readmyfile.eof()){
-		getline(readmyfile, STRING);
+	while(!infile.eof()){
+		getline(infile, STRING);
 		cout<<STRING<<endl;
 	}
-	readmyfile.close();
+	infile.close();
 	
 		
 	
