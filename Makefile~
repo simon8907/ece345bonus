@@ -5,8 +5,8 @@ LFLAGS = -Wall $(DEBUG)
 
 OBJS = main.o 
 
-lcw : $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) -o lcw
+lcs : $(OBJS)
+	$(CC) $(LFLAGS) $(OBJS) -o lcs
 
 main.o : main.cpp
 	$(CC) $(CFLAGS) main.cpp

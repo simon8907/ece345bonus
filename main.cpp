@@ -11,6 +11,7 @@ int main (int argc, char* argv[]){
 
 	cout << "Finding LCSS in "<< argv[1] << endl;
 	string STRING;
+	string LCW;
 	ifstream infile;
 	infile.open(argv[1]);
 
@@ -19,6 +20,12 @@ int main (int argc, char* argv[]){
 		cout<<STRING<<endl;
 	}
 	infile.close();
+	//Code to process the strings
+
+
+
+	//Output
+    cout << "The Longest Consecutive Sequence of Worlds beloing to "<<argv[1]<< " is: "<<LCW<<endl;
 	
 		
 	
