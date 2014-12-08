@@ -34,7 +34,7 @@ int main (int argc, char* argv[]){
 		infile.seekg(0, ios::beg);
 
 		if(!infile.eof()){
-			//Allocate an array of strings, each string contains a line from the input file
+
 			string STRING[numberoflines];
 			int i = 0;
 
