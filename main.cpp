@@ -4,11 +4,17 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
+#include <iterator>
 
 
 using namespace std;
 
 int main (int argc, char* argv[]){
+
+	if (argc != 2) {
+		return 1;	
+	}
 
 	//Usage: using the second arg in main to get the text file name
 	cout << "Finding LCSS in "<< argv[1] << endl;
@@ -16,38 +22,29 @@ int main (int argc, char* argv[]){
 
 	//Basic vars
 
-	int numberoflines = 0;
+	size_t numberoflines = 0;
 	string line;
 	string LCW;
+	vector< string > lines;
 
 	//File handling
 	ifstream infile;
 	infile.open(argv[1]);
 
 	if(infile.is_open()){
-		//calculating the number of lines
-		while(getline(infile, line)){
-			numberoflines++;
+		string buffer;
+		while( getline( infile, buffer ).good()){
+			lines.push_back( buffer );
 		}
-		//Find start of the file and start reading
-		infile.clear();
-		infile.seekg(0, ios::beg);
 
-		if(!infile.eof()){
-			//Allocate an array of strings, each string contains a line from the input file
-			string STRING[numberoflines];
-			int i = 0;
 
-			while(getline(infile, STRING[i])){
-
-				cout<<STRING[i]<<endl;
-				i++;
-			}
-		}
-		
 		infile.close();
+		
+		numberoflines = lines.size();
+		//Checking if we have all the lines from the input file in the program
+		ostream_iterator<string> out(cout, "\n");
+		copy( lines.begin(), lines.end(), out);
 	}
-	
 	else cout << "Unable to open file" << endl;
 	//Code to process the strings
 
