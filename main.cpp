@@ -1,18 +1,19 @@
 //Ximeng Wang 996888998 ECE345 Bonus Assignment
 //Longest Consecutive Subsequent Strings
-//basic file operations
+//
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <iterator>
-
+//#include <hashtable.h>
 
 using namespace std;
 
 int main (int argc, char* argv[]){
 
 	if (argc != 2) {
+		cout << "Usage: ./lcw [inputfile.txt] \n";
 		return 1;	
 	}
 
@@ -25,6 +26,7 @@ int main (int argc, char* argv[]){
 	size_t numberoflines = 0;
 	string line;
 	string LCW;
+	//using a vector of strings to store the file content
 	vector< string > lines;
 
 	//File handling
@@ -36,10 +38,9 @@ int main (int argc, char* argv[]){
 		while( getline( infile, buffer ).good()){
 			lines.push_back( buffer );
 		}
-
-
-		infile.close();
 		
+		infile.close();
+		//Number of lines in the file
 		numberoflines = lines.size();
 		//Checking if we have all the lines from the input file in the program
 		ostream_iterator<string> out(cout, "\n");
